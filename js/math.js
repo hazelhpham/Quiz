@@ -53,12 +53,16 @@ let random = shuffleArray(numQuestions);
 
 for (let i = 0; i < numQuestions.length; i++) {
   let r = random[i];
-  //console.log(listOfQuiz.math[r-1].question);
-  document.getElementById("question").innerHTML = listOfQuiz.math[r-1].question;
-   for (let j = 0; j < numChoices; j++) {
-    //console.log(nameOfChoices[j] + ". " + listOfQuiz.math[r-1].choices[j]);
-    document.getElementById("choices").innerHTML = nameOfChoices[j] + ". " + listOfQuiz.math[r-1].choices[j];
-   }
+  document.getElementById("question").innerHTML =
+    listOfQuiz.math[r - 1].question;
+  document.getElementById("choiceA").innerHTML =
+    nameOfChoices[0] + ". " + listOfQuiz.math[r - 1].choices[0];
+  document.getElementById("choiceB").innerHTML =
+    nameOfChoices[1] + ". " + listOfQuiz.math[r - 1].choices[1];
+  document.getElementById("choiceC").innerHTML =
+    nameOfChoices[2] + ". " + listOfQuiz.math[r - 1].choices[2];
+  document.getElementById("choiceD").innerHTML =
+    nameOfChoices[3] + ". " + listOfQuiz.math[r - 1].choices[3];
 }
 
 //-------------------------end randomize question---------------------------
