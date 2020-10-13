@@ -30,3 +30,37 @@ const listOfQuiz = {
     },
   ],
 };
+
+
+let numQuestions = [1, 2, 3, 4, 5];
+let numChoices = listOfQuiz.math[0].choices.length;
+
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    // Generate random number
+    var j = Math.floor(Math.random() * (i + 1));
+
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+
+  return array;
+}
+
+let random = shuffleArray(numQuestions);
+
+
+for (let i = 0; i < numQuestions.length; i++) {
+  let r = random[i];
+  //console.log(listOfQuiz.math[r-1].question);
+  document.getElementById("question").innerHTML = listOfQuiz.math[r-1].question;
+   for (let j = 0; j < numChoices; j++) {
+    //console.log(nameOfChoices[j] + ". " + listOfQuiz.math[r-1].choices[j]);
+    document.getElementById("choices").innerHTML = nameOfChoices[j] + ". " + listOfQuiz.math[r-1].choices[j];
+   }
+}
+
+//-------------------------end randomize question---------------------------
+
+
