@@ -1,5 +1,3 @@
-let choices = [];
-let nameOfChoices = ["A", "B", "C", "D"];
 const listOfQuiz = {
   math: [
     {
