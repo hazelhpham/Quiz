@@ -43,7 +43,7 @@ function submitQuiz() {
   } else {
     alert("Incorrect!");
   }
-  userAns.value === " ";
+  userAns.value = " ";
   
 }
 
