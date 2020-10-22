@@ -12,17 +12,14 @@ signInButton.addEventListener("click", () => {
 });
 const username = document.getElementById(`username`);
 const password = document.getElementById(`password`);
-console.log(userDB[0].username);
+
 function loginSucceed() {
   let isLoginSucces = false;
   for (let i = 0; i < userDB.length; i++) {
-    console.log(
-      `Here data ===> ${userDB[i].password} --- ${password.value}`,
-      userDB[i].password === password.value
-    );
+    console.log(data[i]);
     if (
-      userDB[i].username === username.value &&
-      userDB[i].password === password.value
+      data[i].username === username.value &&
+      data[i].password === password.value
     ) {
       isLoginSucces = true;
       window.location.href = "https://www.google.com/";
@@ -54,14 +51,18 @@ function signUp() {
   ) {
     alert("Please fill in the require info");
   }
-  //   else if (userDB.indexOf(user)) {}
   else {
     const newUserDB = {
       username: usernameSignUp.value,
-      password: passwordSignUp.value,
+      password: passwordSignUp.value.toString(),
     };
     userDB.push(newUserDB);
     console.log(userDB);
+
+    localStorage.setItem("userDatabase", JSON.stringify(userDB));
+    getData = localStorage.getItem("userDatabase"); 
+    data = JSON.parse(getData);
+    
     alert("You have successfully sign up");
     usernameSignUp.value = "";
     passwordSignUp.value = "";
@@ -73,3 +74,4 @@ function enterSignup(e) {
     signUp();
   }
 }
+
