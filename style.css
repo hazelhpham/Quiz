@@ -1,0 +1,78 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+button {
+	border-radius: 20px;
+	border: 1px solid darkorange;
+	background-color: darkorange;
+	color: #FFFFFF;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 5px 30px;
+	letter-spacing: 1px;
+	transition: transform 80ms ease-in;
+}
+.container {
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-color: white;
+}
+.header {
+  display: flex;
+  height: 10%;
+  border-bottom: 2px solid red;
+}
+.header-left {
+  flex-basis: 60%;
+  background-color: orange;
+}
+.header-inner {
+    display: flex;
+    align-items: center;
+    padding: 0px;
+}
+.logo {
+    height: 8.5%;
+    width: 8.5%;
+}
+.header-inner ul{
+    margin-left: 20px;
+}
+.header-inner ul li {
+    margin: 0 10px;
+    display: inline-block;
+}
+.header-inner ul li input{
+  margin: 0px 30px;
+  width: 250px;
+  height: 40px;
+  font-size: 100%;
+}
+.header-inner ul li button i {
+  margin: 5px;
+}
+.header-right {
+  flex-basis: 40%;
+  background-color: orange;
+}
+.header-right ul {
+  float: right;
+  margin: 30px;
+  margin-right: 50px;
+}
+.header-right ul li {
+  display: inline-block;
+  list-style: none;
+  margin: 0 10px;
+}
+.header-right ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+.header-right ul li a :hover{
+  color: black;
+  text-decoration: underline;
+}
