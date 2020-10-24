@@ -17,7 +17,7 @@
     ></script>
   </head>
   <body>
-    <div class="navbar sticky-top nav">
+    <!-- <div class="navbar sticky-top nav">
       <div class="header">
         <div class="header-left">
           <div class="header-inner">
@@ -46,9 +46,38 @@
           </ul>
         </div>
       </div>
-    </div>
-    <div class="container">
+    </div> -->
 
+    <nav class="navbar navbar-light bg-light justify-content-between nav">
+      <a class="navbar-brand logo">Quizz</a>
+      <div class="left_nav">
+        <form class="form-inline search_nav">
+          <input
+            class="form-control mr-sm-2 box"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button
+            class="btn btn-outline-success my-2 my-sm-0 submit_search"
+            type="submit"
+          >
+            Search
+          </button>
+        </form>
+        <button class="button_header">
+          <i class="fas fa-plus"></i> Create new quiz
+        </button>
+      </div>
+      <div class="right_nav">
+        <ul>
+          <li class="sign_in"><a href="#">Sign in</a></li>
+          <li class="sign_up"><a href="#">Sign up</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
       <div class="available_quizzes">
         <div class="row">
           <div class="math col-sm-3 quiz_card">Math Quiz</div>
@@ -63,19 +92,15 @@
         </div>
       </div>
 
-
-
-      <div class="user_quizzes">
-        Create your own quiz ...
-      </div>
-
+      <div class="user_quizzes">Create your own quiz ...</div>
     </div>
 
     <div class="footer">
-        <div class="row">
-            <div class="math col-sm-4 ">About us </div>
-          <div class="history col-sm-4 ">Contact us</div>
-        </div>
+      <div class="row">
+        <div class="math col-sm-4">About us</div>
+        <div class="history col-sm-4">Contact us</div>
+      </div>
     </div>
   </body>
 </html>
+
