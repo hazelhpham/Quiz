@@ -5,28 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The quiz</title>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <script src="https://kit.fontawesome.com/9548ea0da7.js" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/9548ea0da7.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <div class="container">
+    <div class="navbar sticky-top nav">
       <div class="header">
         <div class="header-left">
           <div class="header-inner">
             <img src="./icon.png" class="logo" />
-            <ul>              
-              <li><input type="text" placeholder="Find your topic"></li>
-              <li><button><i class="fas fa-plus"></i>Create new quiz</button></li>
+            <ul>
+              <li>
+                <input
+                  type="text"
+                  class="search_header"
+                  placeholder="Find your topic"
+                />
+              </li>
+              <li>
+                <button class="button_header">
+                  <i class="fas fa-plus"></i>Create new quiz
+                </button>
+              </li>
             </ul>
           </div>
         </div>
         <div class="header-right">
-            <ul>              
-              <li><a href="#">More about us</a></li>
-              <li><a href="#">Sign in</a></li>
-              <li><a href="#">Sign up</a></li>
-            </ul>          
+          <ul>
+            <li class="header_li"><a href="#">More about us</a></li>
+            <li class="header_li"><a href="#">Sign in</a></li>
+            <li class="header_li"><a href="#">Sign up</a></li>
+          </ul>
         </div>
       </div>
+    </div>
+    <div class="container">
+
+      <div class="available_quizzes">
+        <div class="row">
+          <div class="math col-sm-3 quiz_card">Math Quiz</div>
+          <div class="history col-sm-3 quiz_card">History Quiz</div>
+          <div class="music col-sm-3 quiz_card">Music Quiz</div>
+        </div>
+        <div class="row">
+          <div class="film col-sm-3 quiz_card">Film Quiz</div>
+          <div class="general_knowlegde col-sm-3 quiz_card">
+            General Knowledge quiz
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="user_quizzes">
+        Create your own quiz ...
+      </div>
+
+    </div>
+
+    <div class="footer">
+        <div class="row">
+            <div class="math col-sm-4 ">About us </div>
+          <div class="history col-sm-4 ">Contact us</div>
+        </div>
     </div>
   </body>
 </html>
