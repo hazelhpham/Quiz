@@ -1,17 +1,49 @@
-.header{
-  width:100%;
-  height:80 px;
-  display:flex;
-  
-}
-.search_header{
-  
-}
+
 * {
     padding: 0;
     margin: 0;
-  }
+}
+.logo{
+  width:5%;
+  text-align:center;
+}
+.nav{
+  width:100%;
+  
+}
+.right_nav{
+  width:18%;
+}
+ul{
+  list-style:none;
+}
+.sign_in a{
+  color:white;
+  float:left;
+  border: 1px solid darkorange;
+  background-color: darkorange;
+  padding: 5px 30px;
+border-radius: 20px;
+  
+}
+.sign_up a{
+  color:white;
+  float:right;
+  border: 1px solid darkorange;
+  background-color: darkorange;
+  padding: 5px 30px;
+border-radius: 20px;
+}
+.left_nav{
+  width:70%;
+}
+.search_nav{
+ width:28%;
+float:left;
+}
+
  .button_header {
+      width:15%;
       border-radius: 20px;
       border: 1px solid darkorange;
       background-color: darkorange;
@@ -22,63 +54,34 @@
       letter-spacing: 1px;
       transition: transform 80ms ease-in;
   }
-  .container {
-    height: 100vh;
-    background-position: center;
-    background-size: cover;
-    background-color: white;
-    width:100%;
-  }
 
-  .header-left {
-    flex-basis: 60%;
-    background-color: orange;
-  }
-  .header-inner {
-      display: flex;
-      align-items: center;
-      padding: 0px;
-  }
-  .logo {
-      height: 8.5%;
-      width: 8.5%;
-  }
-  .header-inner ul{
-      margin-left: 20px;
-  }
-  .header-inner ul li {
-      margin: 0 10px;
-      display: inline-block;
-  }
-  .header-inner ul li input{
-    margin: 0px 30px;
-    width: 250px;
-    height: 40px;
-    font-size: 100%;
-  }
-  .header-inner ul li button i {
-    margin: 5px;
-  }
-  .header-right {
-    flex-basis: 40%;
-    background-color: orange;
-  }
-  .header-right ul {
-    float: right;
-    margin: 30px;
-    margin-right: 50px;
-  }
-  .header-right ul li {
-    display: inline-block;
-    list-style: none;
-    margin: 0 10px;
-  }
-  .header-right ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-  }
-  .header-right ul li a :hover{
-    color: black;
-    text-decoration: underline;
-  }
+.container{
+  margin-top:3%;
+  width:100%;
+  height:10s00px;
+}
+.quiz_card{
+  height:100 px;
+  padding:3%;
+  border: 1px solid black;
+  margin:1%;
+text-align:center;
+}
+.quiz_card:hover{
+  border-color: orange;
+  color:orange;
+  
+}
+.user_quizzes{
+  width:100%;
+  height:300px;
+  background-color:green;
+}
+
+.footer{
+  margin-top:5%;
+  width:100%;
+  height:300px;
+  text-align:center;
+  background-color: blue;
+}
