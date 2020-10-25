@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/9548ea0da7.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <form action="#">
+      <div class="form-group">
+        <label class="control-label">Topic</label>
+        <input
+          id="topic"
+          type="text"
+          class="form-control"
+          placeholder="Enter your topic's name"
+        />
+      </div>
+      <div class="form-group">
+        <label class="control-label">Question</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter your question"
+          id="question"
+        />
+      </div>
+      <div class="form-group">
+        <label class="control-label">Choices</label>
+        <div>
+          <input
+            id="choiceA"
+            type="text"
+            class="form-control input-lg"
+            value=""
+            placeholder="Choice A"
+          />
+          <input
+            id="choiceB"
+            type="text"
+            class="form-control input-lg"
+            value=""
+            placeholder="Choice B"
+          />
+          <input
+            id="choiceC"
+            type="text"
+            class="form-control input-lg"
+            value=""
+            placeholder="Choice C"
+          />
+          <input
+            id="choiceD"
+            type="text"
+            class="form-control input-lg"
+            value=""
+            placeholder="Choice D"
+          />
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-group">
+          <label class="control-label">Correct answer</label>
+          <div>
+            <input
+              id="answer"
+              type="text"
+              class="form-control input-lg"
+              value=""
+              placeholder="Enter the correct answer"
+            />
+          </div>
+        </div>
+        <div>
+          <button onclick="addQues()" id="add-question" class="btn">
+            Add question
+          </button>
+          <button id="finish-topic" class="btn">Finish topic</button>
+        </div>
+      </div>
+    </form>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Question</th>
+          <th scope="col">Choice A</th>
+          <th scope="col">Choice B</th>
+          <th scope="col">Choice C</th>
+          <th scope="col">Choice D</th>
+          <th scope="col">Correct answer</th>
+        </tr>
+      </thead>
+      <tbody id="question-list">
+        <tr>
+          <th scope="row">Is Hiep a handsome guy??</th>
+          <td>Why not</td>
+          <td>Yes</td>
+          <td>Absolutely</td>
+          <td>I want his child</td>
+          <td>All of the above</td>
+        </tr>
+      </tbody>
+    </table>
+    <script src="./js/addQuiz.js"></script>
+  </body>
+</html>
