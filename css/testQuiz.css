@@ -1,0 +1,33 @@
+
+#question{
+  text-align:center;
+  font-weight:bold;
+  font-size:30px;
+}
+.choices{
+  padding-left:23%;
+  margin:2%;
+  font-size:20px;
+}
+#countQuestion{
+  font-size:13px;
+  text-align:center;
+  
+}
+.user_answer{
+  padding-left:25%;
+}
+#chooseTopics{
+  font-size:20px;
+  width:100%;
+}
+#chooseTopics input{
+  margin: 1%;
+  
+}
+.optionTopic{
+  border:1px solid black;
+  width:50%;
+  float:left;
+  text-align:center;
+}
