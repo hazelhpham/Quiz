@@ -2,85 +2,85 @@
 
 
 //-------------------LOG IN JAVASCRIPT FILE---------------------
-const signUpButton = document.getElementById("signUp");
-const signInButton = document.getElementById("signIn");
-const container = document.getElementById("container");
-const signUpTransition = document.getElementById("sign-up-transition");
+// const signUpButton = document.getElementById("signUp");
+// const signInButton = document.getElementById("signIn");
+// const container = document.getElementById("container");
+// const signUpTransition = document.getElementById("sign-up-transition");
 
-signUpButton.addEventListener("click", () => {
-  container.classList.add("right-panel-active");
-});
+// signUpButton.addEventListener("click", () => {
+//   container.classList.add("right-panel-active");
+// });
 
-signInButton.addEventListener("click", () => {
-  container.classList.remove("right-panel-active");
-});
-const username = document.getElementById(`username`);
-const password = document.getElementById(`password`);
+// signInButton.addEventListener("click", () => {
+//   container.classList.remove("right-panel-active");
+// });
+// const username = document.getElementById(`username`);
+// const password = document.getElementById(`password`);
 
-function loginSucceed() {
-  let isLoginSucces = false;
-  for (let i = 0; i < userDB.length; i++) {
-    console.log(data[i]);
-    if (
-      data[i].username === username.value &&
-      data[i].password === password.value
-    ) {
-      isLoginSucces = true;
-      window.location.href = "quizTest.html";
-      break;
-    }
-  }
-  if (isLoginSucces) {
-    alert("Login success");
-  } else {
-    alert("Try again");
-    username.value = "";
-    password.value = "";
-  }
-}
-function enterLogin(e) {
-  if (e.key === "Enter") {
-    loginSucceed();
-  }
-}
+// function loginSucceed() {
+//   let isLoginSucces = false;
+//   for (let i = 0; i < userDB.length; i++) {
+//     console.log(data[i]);
+//     if (
+//       data[i].username === username.value &&
+//       data[i].password === password.value
+//     ) {
+//       isLoginSucces = true;
+//       window.location.href = "quizTest.html";
+//       break;
+//     }
+//   }
+//   if (isLoginSucces) {
+//     alert("Login success");
+//   } else {
+//     alert("Try again");
+//     username.value = "";
+//     password.value = "";
+//   }
+// }
+// function enterLogin(e) {
+//   if (e.key === "Enter") {
+//     loginSucceed();
+//   }
+// }
 
-const usernameSignUp = document.getElementById(`username-sign-up`);
-const passwordSignUp = document.getElementById(`password-sign-up`);
-const emailSignUp = document.getElementById("email-sign-up");
-function signUp() {
-  if (
-    usernameSignUp.value === "" ||
-    passwordSignUp.value === "" ||
-    emailSignUp.value === ""
-  ) {
-    alert("Please fill in the require info");
-  }
-  else {
-    const newUserDB = {
-      username: usernameSignUp.value,
-      password: passwordSignUp.value.toString(),
-    };
-    userDB.push(newUserDB);
-    console.log(userDB);
+// const usernameSignUp = document.getElementById(`username-sign-up`);
+// const passwordSignUp = document.getElementById(`password-sign-up`);
+// const emailSignUp = document.getElementById("email-sign-up");
+// function signUp() {
+//   if (
+//     usernameSignUp.value === "" ||
+//     passwordSignUp.value === "" ||
+//     emailSignUp.value === ""
+//   ) {
+//     alert("Please fill in the require info");
+//   }
+//   else {
+//     const newUserDB = {
+//       username: usernameSignUp.value,
+//       password: passwordSignUp.value.toString(),
+//     };
+//     userDB.push(newUserDB);
+//     console.log(userDB);
 
-    localStorage.setItem("userDatabase", JSON.stringify(userDB));
-    getData = localStorage.getItem("userDatabase"); 
-    data = JSON.parse(getData);
+//     localStorage.setItem("userDatabase", JSON.stringify(userDB));
+//     getData = localStorage.getItem("userDatabase"); 
+//     data = JSON.parse(getData);
     
-    alert("You have successfully sign up");
-    usernameSignUp.value = "";
-    passwordSignUp.value = "";
-    emailSignUp.value = "";
-  }
-}
-function enterSignup(e) {
-  if (e.key === "Enter") {
-    signUp();
-  }
-}
+//     alert("You have successfully sign up");
+//     usernameSignUp.value = "";
+//     passwordSignUp.value = "";
+//     emailSignUp.value = "";
+//   }
+// }
+// function enterSignup(e) {
+//   if (e.key === "Enter") {
+//     signUp();
+//   }
+// }
 
 //-------------------END LOG IN JAVASCRIPT FILE---------------------
-
+//SPLIT INTO ANOTHER JAVASCRIPT FILE
 
 
 //--------------------- TEST QUIZ JAVASCRIPT FILE -------------------------
@@ -248,7 +248,7 @@ function showSelectedQuiz() {
 //  if: correct => count++ the result
 //  alert that user's answer is correct
 //  else: incorrect
-function submitQuiz() {
+function submitAllQuizzes() {
   //get the answer from user
   let userAns = document.getElementById("answer").value;
   userAns.toUpperCase();
@@ -276,7 +276,7 @@ showSelectedQuiz();
 //if there are still more questions => continue showing more questions
 //else stop the game and show the result
 document.getElementById("submit").onclick = function () {
-  submitQuiz();
+  submitAllQuizzes();
 
   //if(indexQuestion === (myQuiz.length-1)){
   if (countQuiz === SIZE) {
@@ -322,7 +322,7 @@ const nextButton = document.getElementById("next");
 //when user clicks next button => the index of Question will be incremeneted by 1
 //show quiz with the incremented index
 //if there are no more questions => alert the result
-function nextFunction() {
+function nextFunctionAllQuiz() {
 
   // for single Quiz 
   /* 
@@ -360,6 +360,87 @@ function nextFunction() {
 }
 
 //-------------------END TEST QUIZ JAVASCRIPT FILE---------------------
+
+//--------------------TEST A SINGLE QUIZ JAVASCRIPT FILE ------------------------
+
+
+
+const topicQuiz = "general_knowledge"; 
+myQuiz = getQuiz(topicQuiz);
+//document.getElementById("topic").innerHTML = topicQuiz; //to show the topic of the quiz 
+
+
+
+//function to show quiz : a question then 4 options 
+function showQuiz() {
+  document.getElementById("question").innerHTML = "Question: " + myQuiz[indexQuestion].question;
+  document.getElementById("choiceA").innerHTML = "A. " + myQuiz[indexQuestion].choices[0];
+  document.getElementById("choiceB").innerHTML = "B. " +myQuiz[indexQuestion].choices[1];
+  document.getElementById("choiceC").innerHTML = "C. " +myQuiz[indexQuestion].choices[2];
+  document.getElementById("choiceD").innerHTML = "D. " +myQuiz[indexQuestion].choices[3];
+}
+
+//function to submit the quiz 
+function submitQuiz() {
+  //get the answer from user
+  let userAns = document.getElementById("answer").value.toUpperCase();
+  
+  console.log(userAns);
+  
+  
+  //compare the answer of user and the answer of ther quiz
+  //if user answer correctly => alert and add up the score
+  if (userAns === myQuiz[indexQuestion].answer) {
+    alert("Correct!");
+    count++;
+  //else alert incorrect. 
+  } else {
+    alert("Incorrect!");
+  }
+  userAns.value = " ";
+  
+}
+
+
+
+
+showQuiz();
+
+
+//when user clicks submit button => check if answer is correct or not
+//if there are still more questions => continue showing more questions
+//else stop the game and show the result 
+document.getElementById("submit").onclick = function () {
+  submitQuiz();
+  if(indexQuestion === (myQuiz.length-1)){
+    alert("You answer " + count + " questions correct.");
+  }
+  else if(indexQuestion  < (myQuiz.length-1)){
+    indexQuestion++;
+    showQuiz();
+  }
+};
+
+//when user clicks next button => runs the nextFunction
+document.getElementById("next").onclick = () => {
+  nextFunction();
+};
+const nextButton = document.getElementById("next");
+
+//when user clicks next button => the index of Question will be incremeneted by 1
+//show quiz with the incremented index 
+//if there are no more questions => alert the result
+function nextFunction() {
+  indexQuestion++;
+  showQuiz();
+  if(indexQuestion === (myQuiz.length-1)){
+    alert("You answer " + count + " questions correct.");
+  }
+}
+
+//---------------------END TEST A SINGLE QUIZ JAVASCRIPT FILE-----------------------
+
+
 
 
 //--------------------ADD QUIZ JAVASCRIPT FILE--------------------------------
