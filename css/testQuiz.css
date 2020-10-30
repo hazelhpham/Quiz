@@ -26,8 +26,26 @@
   
 }
 .optionTopic{
-  border:1px solid black;
+  border:1px solid gray;
   width:50%;
   float:left;
   text-align:center;
+  padding:1.5%;
+  color:green;
+}
+
+#topic{
+    font-weight: bold;
+    font-size:30px;
+}
+#testQuiz{
+    display:none;
+    width:100%;
+}
+
+#main_page{
+    display:block;
+}
+#testQuizzes{
+    display:none;
 }
