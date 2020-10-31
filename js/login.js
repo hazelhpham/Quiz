@@ -22,7 +22,7 @@ function loginSucceed() {
       data[i].password === password.value
     ) {
       isLoginSucces = true;
-      window.location.href = "quizTest.html";
+      window.location.href = ".html";
       break;
     }
   }
