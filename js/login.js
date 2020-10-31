@@ -22,7 +22,7 @@ function loginSucceed() {
       data[i].password === password.value
     ) {
       isLoginSucces = true;
-      window.location.href = ".html";
+      window.location.href = "index.html";
       break;
     }
   }
@@ -74,4 +74,3 @@ function enterSignup(e) {
     signUp();
   }
 }
-
