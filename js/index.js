@@ -389,3 +389,4 @@ function showCreateQuiz() {
   homeContainer.setAttribute("hidden", true);
   creatQuizContainer.removeAttribute("hidden");
 }
+ 
