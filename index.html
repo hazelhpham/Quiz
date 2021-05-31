@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The quiz</title>
     <link href="./css/style.css" rel="stylesheet" type="text/css" />
+    <link href="./css/search.css" rel="stylesheet" type="text/css" />
     <link href="./css/testQuiz.css" rel="stylesheet" type="text/css" />
     <link
       rel="stylesheet"
@@ -12,6 +13,10 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Helvetica">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <script
       src="https://kit.fontawesome.com/9548ea0da7.js"
       crossorigin="anonymous"
@@ -20,43 +25,37 @@
     <script src="./js/dataUser.js"></script>
   </head>
   <body>
-    <nav class="navbar navbar-light bg-light justify-content-between nav">
-      <a class="navbar-brand logo">Quizz</a>
-      <div class="left_nav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a href="#" class="nav-link" onclick="showCreateQuiz()"
-              >Create new quiz</a
-            >
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link" onclick="showHome()">Home</a>
-          </li>
-          <li class="nav-item">
-            <form class="form-inline search_nav">
-              <input
-                class="form-control mr-sm-2 box"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-
-              <button
-                class="btn btn-outline-success my-2 my-sm-0 submit_search"
-                type="submit"
-              >
-                Search
-              </button>
+    
+    <nav class="navbar navbar-light bg-light justify-content-between nav fixed-top">
+      <div class="right-nav">
+      <a href="#" class="navbar-brand logo" onclick="showHome()">Quizz</a>
+      <div>
+        <a href="#" class="nav-link create-quiz" onclick="showCreateQuiz()">Create</a>
+      </div>
+      </div>
+      <div class="left_nav">                  
+                  <form class="form-inline search_nav">
+                    <div class="search-holder">
+                    <div class="icons"> <i class="fas fa-search"></i> </div>
+                    <input
+                      class="form-control mr-sm-2 box"
+                      id = "search-input"
+                      type="search"
+                      placeholder="Search.."
+                      aria-label="Search"
+                      />
+                    </div>
+                    </form>
             </form>
           </li>
         </ul>
       </div>
-      <div class="right_nav">Welcome to our website!!</div>
     </nav>
 
     <div class="container" id="home">
+      <div id="topic-quizzes-hide">
+      <h3> Topics</h3>
       <div class="available_quizzes">
-        <div class="display-3">Available quiz</div>
         <div class="row">
           <div class="math col-sm-3 quiz_card">
             <input
@@ -65,7 +64,7 @@
               name="topicChoice"
               value="math"
               class="checkbox-inline topicChoice"
-            />Math Quiz
+            />Math 
           </div>
           <div class="geography col-sm-3 quiz_card">
             <input
@@ -75,7 +74,7 @@
               value="geography"
               class="checkbox-inline topicChoice"
             />
-            Geography Quiz
+            Geography 
           </div>
           <div class="music col-sm-3 quiz_card">
             <input
@@ -85,7 +84,7 @@
               value="music"
               class="checkbox-inline topicChoice"
             />
-            Music Quiz
+            Music 
           </div>
         </div>
         <div class="row">
@@ -96,7 +95,7 @@
               name="topicChoice"
               value="films"
               class="checkbox-inline topicChoice"
-            />Film Quiz
+            />Film 
           </div>
           <div class="general_knowlegde col-sm-3 quiz_card">
             <input
@@ -106,7 +105,7 @@
               value="general_knowledge"
               class="checkbox-inline topicChoice"
             />
-            General Knowledge quiz
+            General Knowledge 
           </div>
           <div class="sports col-sm-3 quiz_card">
             <input
@@ -116,19 +115,21 @@
               value="sports"
               class="checkbox-inline topicChoice"
             />
-            Sports Quiz
+            Sports 
           </div>
         </div>
       </div>
+      <div class="topic-submit">
       <button
-        class="btn btn-success"
+        class="submit-btn"
         id="submitChoosingQuiz"
         type="submit"
         onclick="submitTestQuiz()"
       >
-        Submit Topics
+      Start quiz!
       </button>
-
+      </div>
+    </div>
       <div id="testQuiz">
         <!-- <div>
           Your topic is :
@@ -149,39 +150,48 @@
           />
           <button
             id="submit"
-            class="btn btn-primary"
+            class="submit-btn-quiz"
             type="submit"
             onclick="submitQuiz()"
           >
-            Submit Answer
+            Submit
           </button>
-          <button id="next" class="btn btn-danger" onclick="nextFunction()">
+          <button id="next" class="next-btn-quiz" onclick="nextFunction()">
             Next
           </button>
         </div>
       </div>
 
-      <div class="user_quizzes">
-        <div class="display-3">Your quizzes :</div>
-        <div id="available-user-quizzes">
-          <div id="empty-quiz">
-            <p>You don't have any quizzes.</p>
-            <a href="#" onclick="showCreateQuiz()"> Create new one .. </a>
+      <div class="container user_quizzes">
+        <div id="empty-quiz">
+          <h3> Your quizzes </h3>
+            <p>You do not have any quizzes.
+            <span><a href="#" onclick="showCreateQuiz()"> Create new one .. </a> </span> </p>
           </div>
-          <button
-            class="btn btn-success"
-            id="submitChoosingQuiz"
-            type="submit"
-            onclick="submitTestQuiz()"
-          >
-            Submit Topics
-          </button>
+        
+        <div id="available-user-quizzes"> 
+          <h3> Your quizzes </h3> 
+          <div class="row">
+          </div>             
+            <div class="topic-submit">
+            <button
+              class="submit-btn"
+              id="submitChoosingQuiz"
+              type="submit"
+              onclick="submitTestQuiz()"
+            >
+              Submit
+            </button>
+            </div>
+         
+
+        </div>
 
           <div id="testQuiz">
             <!-- <div>
           Your topic is :
           <div id="topic"></div>
-        </div> -->
+          </div> -->
             <div id="question"></div>
             <div id="countQuestion"></div>
             <div id="choiceA" class="choices"></div>
@@ -196,22 +206,23 @@
                 placeholder="Your answer here.."
               />
               <button
-                id="submit"
-                class="btn btn-primary"
+                id="submit-btn"
+                class="btn"
                 type="submit"
                 onclick="submitQuiz()"
               >
-                Submit Answer
+                Submit
               </button>
-              <button id="next" class="btn btn-danger" onclick="nextFunction()">
+              <button id="next" class="next-btn-quiz" onclick="nextFunction()">
                 Next
-              </button>
+              </button> 
+            
             </div>
           </div>
         </div>
       </div>
     </div>
-
+  </div>
     <div class="container" id="create-quiz" hidden>
       <form action="#">
         <div class="form-group">
@@ -280,19 +291,17 @@
           </div>
           <div>
             <button
-              onclick="addQues()"
-              id="add-question"
-              class="btn btn-primary"
-            >
-              Add question
-            </button>
-            <button
-              onclick="addQuiz()"
-              id="finish-topic"
-              class="btn btn-secondary"
-            >
-              Finish topic
-            </button>
+            id="submit-btn"
+            class="btn"
+            type="submit"
+            onclick="addQues()"
+          >
+          Add question
+          </button>
+          <button id="next" class="next-btn-quiz" onclick="addQuiz()">
+            Finish topic
+          </button> 
+
           </div>
         </div>
       </form>
@@ -310,19 +319,22 @@
         <tbody id="question-list"></tbody>
       </table>
     </div>
+    <div class="container" id="search-file">
+      
+    </div>
 
     <div class="footer">
       <div class="row">
-        <div class="math col-sm-6">
-          <h3>About us</h3>
+          <div class="col-sm-6 about-us">
+          <h5>About us</h5>
           <div>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt
             vel voluptatem nobis quae quibusdam eos et nemo magnam debitis
             placeat exercitationem perferendis.
           </div>
         </div>
-        <div class="history col-sm-6">
-          <h3>Contact us</h3>
+          <div class="col-sm-6 contact-us">
+          <h5>Contact us</h5>
           <div class="social-container">
             <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
@@ -331,6 +343,7 @@
         </div>
       </div>
     </div>
+     <script src="./js/searchQuiz.js"></script>
     <script src="./js/index.js"></script>
   </body>
 </html>
