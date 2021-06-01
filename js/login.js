@@ -16,10 +16,7 @@ console.log(userDB[0].username);
 function loginSucceed() {
   let isLoginSucces = false;
   for (let i = 0; i < userDB.length; i++) {
-    console.log(
-      `Here data ===> ${userDB[i].password} --- ${password.value}`,
-      userDB[i].password === password.value
-    );
+
     if (
       userDB[i].username === username.value &&
       userDB[i].password === password.value

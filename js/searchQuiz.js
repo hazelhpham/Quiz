@@ -41,7 +41,7 @@ const searchTopic = () => {
     );
     userSearch.value = "";
   } else {
-      alert("Topic does not exist!");
+      alert("Quiz does not exist!");
       userSearch.value = "";
   }
 };

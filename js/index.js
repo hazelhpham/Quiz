@@ -1,30 +1,32 @@
-
-
-//-------------------END LOG IN JAVASCRIPT FILE---------------------
-
-//--------------------- TEST QUIZ JAVASCRIPT FILE -------------------------
-/*bugs :
-  - userAns chua ve blank khi submit question
-  - chua display topics
-*/
 let topicChosen = [];
 let allQuestions = [];
 
+
+let homeContainer = document.getElementById("home");
+let availableQuizzes = document.getElementById("topic-quizzes-hide");
+let emptyQuizzes = document.getElementById("empty-quiz");
+let createQuizContainer = document.getElementById("create-quiz");
+let availableUQ = document.getElementById("available-user-quizzes");
+availableUQ.setAttribute("hidden", true);
+
+
 //variables for testQuiz
-let testQuiz = document.getElementById("testQuiz"); //testQuiz
-let indexSelectedQuestions = 0; //testQuiz
-let indexChoices = 1; //testQuiz
-let indexAnswer = 2; //testQuiz. set as 2 because the answer is always placed at index 2,
-let countQuiz = 1; //for testQuiz.
+let testQuiz = document.getElementById("testQuiz");
+let indexSelectedQuestions = 0; 
+let indexChoices = 1; 
+let indexAnswer = 2;
+let countQuiz = 1; 
 let userAns = " ";
+
+
 //variables for single test
 let indexQuestion = 0; //get the index of the questions
 let count = 0; //both
 
-//function to shuffle the questions
+
+//===========================================================================
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
-    // Generate random number
     let j = Math.floor(Math.random() * (i + 1));
     let temp = array[i];
     array[i] = array[j];
@@ -32,8 +34,8 @@ function shuffleArray(array) {
   }
   return array;
 }
-//FUNCTION FOR SINGLE QUIZ!
-//shuffle the quiz topics before letting user finish choosing the topics for Quizzes
+//===========================================================================
+
 const getQuiz = (topic) => {
   const randomQuestion = shuffleArray(listOfQuiz[topic]);
   return randomQuestion;
@@ -53,21 +55,16 @@ for (let i = 0; i < 6; i++) {
 
 let SIZE = 0;
 
-//FUNCTION FOR QUIZ TEST!
-//when user hits the submitQuiz button,
-// 1) pull out all the questions of topics selected by user => put into a big array
-//    called : allQuestions => shuffle it by the shuffleArray function
-// 2) the quiz content will be displayed : 1 question, 4 choices, and 1 box for user to
-//    enter answers
 
-function submitTestQuiz() {
+const submitTestQuiz = () => {
   const checkboxes = document.querySelectorAll(
     'input[name="topicChoice"]:checked'
   );
 
-  SIZE = checkboxes.length * 5; // get the number of questions that user will have to answer
-
+  SIZE = checkboxes.length * 5;
+ 
   checkboxes.forEach((checkbox) => {
+   
     if (checkbox.value === "math") {
       for (let i = 0; i < listOfQuiz.math.length; i++) {
         allQuestions.push(listOfQuiz.math[i].question);
@@ -112,29 +109,28 @@ function submitTestQuiz() {
       }
     }
   });
-
-  
-
-  //------------------------------------
-
+  checkboxes.forEach((checkbox) => {
+    document.getElementById(checkbox.id).checked = false;
+  });
+  if(checkboxes.length ===0) alert("Please choose a topic!");
+  else{
   let displayQuiz = testQuiz.style.display;
-
-  if (displayQuiz == "none") {
-    // testQuiz is visible. hide it
+  if (displayQuiz === "none") {
     testQuiz.style.display = "block";
   } else {
-    // testQuiz is hidden. Show it
     testQuiz.style.display = "block";
+    availableQuizzes.style.display = "none";
+    emptyQuizzes.style.display = "none";
   }
   showSelectedQuiz();
-
   document.getElementById("countQuestion").innerHTML =
     "User is answering the 1st out of " + SIZE + " number of quizzes";
 }
+}
 
-//SINGLE QUIZ
-//function to show quiz : a question then 4 options
-function showQuiz() {
+
+//===========================================================================
+const showQuiz = () => {
   document.getElementById("question").innerHTML =
     "Question: " + myQuiz[indexQuestion].question;
   document.getElementById("choiceA").innerHTML =
@@ -147,13 +143,11 @@ function showQuiz() {
     "D. " + myQuiz[indexQuestion].choices[3];
 }
 
-//TEST QUIZ
-//display a question
-//then show other options
-function showSelectedQuiz() {
+//===========================================================================
+
+const showSelectedQuiz = ()=> {
   document.getElementById("question").innerHTML =
-    "Question: " + allQuestions[indexSelectedQuestions];
-  //the choices is a string => use for loop to loop through the string of choices
+    allQuestions[indexSelectedQuestions];
   let str = allQuestions[indexChoices];
   for (let i in str) {
     document.getElementById("choiceA").innerHTML = "A. " + str[0] + " \n";
@@ -161,24 +155,12 @@ function showSelectedQuiz() {
     document.getElementById("choiceC").innerHTML = "C. " + str[2] + " \n";
     document.getElementById("choiceD").innerHTML = "D. " + str[3] + " \n";
   }
-}
+};
 
-//FUNCTION FOR BOTH !
-//this function will run after typing the answer for the question => user hits the submit button
-//1) converts the user's answer to uppercase if its lowercase.
-//2)compare the user's answer and the answer
-//  if: correct => count++ the result
-//  alert that user's answer is correct
-//  else: incorrect
-function submitQuiz() {
-  //get the answer from user
+//===========================================================================
+const submitQuiz = () => {
   let userAns = document.getElementById("answer").value.toUpperCase();
-
-  //compare the answer of user and the answer of ther quiz
-  //if user answer correctly => alert and add up the score
-  //if (userAns === myQuiz[indexQuestion].answer) { //for single Quiz
   if (userAns === allQuestions[indexAnswer]) {
-    //for testQuiz
     console.log(
       "Program Answer : " +
         allQuestions[indexAnswer] +
@@ -201,31 +183,22 @@ function submitQuiz() {
   userAns = "";
 }
 
-//showQuiz(); //for html of single Quiz
 
 showSelectedQuiz();
 
-//when user clicks submit button => check if answer is correct or not
-//if there are still more questions => continue showing more questions
-//else stop the game and show the result
-document.getElementById("submit").onclick = function () {
+document.getElementById("submit").onclick = ()=> {
   submitQuiz();
-
-  //if(indexQuestion === (myQuiz.length-1)){
+  document.getElementById("answer").value = "";
   if (countQuiz === SIZE) {
     alert("You answer " + count + " questions correct.");
-
     let displayQuiz = testQuiz.style.display;
-    if (displayQuiz == "block") {
+    if (displayQuiz === "block") {
       testQuiz.style.display = "none";
+      availableQuizzes.style.display = "block";
+      emptyQuizzes.style.display = "block";
     }
     console.log("User finishes the quiz!");
   }
-  //for a single quiz
-
-  /*else if(indexQuestion  < (myQuiz.length-1)){
-    showQuiz(); 
-  */
   else if (countQuiz < SIZE) {
     indexSelectedQuestions += 3;
     indexChoices += 3;
@@ -243,15 +216,13 @@ document.getElementById("submit").onclick = function () {
   countQuiz++;
 };
 
-//when user clicks next button => runs the nextFunction
+//===========================================================================
 document.getElementById("next").onclick = () => {
   nextFunction();
 };
 const nextButton = document.getElementById("next");
 
-//when user clicks next button => the index of Question will be incremeneted by 1
-//show quiz with the incremented index
-//if there are no more questions => alert the result
+//===========================================================================
 function nextFunction() {
   // for single Quiz
   /* 
@@ -261,8 +232,6 @@ function nextFunction() {
     alert("You answer " + count + " questions correct.");
   }
   */
-
-  //for test Quiz
   alert("The correct answer for this answer is: " + allQuestions[indexAnswer]);
   indexSelectedQuestions += 3;
   indexChoices += 3;
@@ -276,10 +245,11 @@ function nextFunction() {
   showSelectedQuiz();
   if (countQuiz === SIZE) {
     alert("You answer " + count + " questions correct.");
-    // testQuiz is visible. hide it
     let displayQuiz = testQuiz.style.display;
-    if (displayQuiz == "block") {
+    if (displayQuiz === "block") {
       testQuiz.style.display = "none";
+      availableQuizzes.style.display = "block";
+      emptyQuizzes.style.display = "block";
     }
     console.log("User finishes the quiz!");
   }
@@ -313,12 +283,13 @@ function addQues() {
   ) {
     alert("Please fill in the require info");
   } else {
-    newObj = {
+    topic.value = {
       question: question.value,
       choices: [choiceA.value, choiceB.value, choiceC.value, choiceD.value],
       answer: answer.value.toUpperCase(),
     };
-    defaulftArr.push(newObj);
+
+    defaulftArr.push(topic.value);
     console.log(defaulftArr);
 
     quesList.insertAdjacentHTML(
@@ -343,7 +314,7 @@ function addQues() {
 function addQuiz() {
   if (topic.value === "") {
     alert("Please enter the topic of the set of quiz");
-  } else if (defaulftArr.length < 5) {
+  } else if (defaulftArr.length < 1) {
     alert("There must be at least 5 questions");
   } else {
     userQuiz.topicName = defaulftArr;
@@ -358,10 +329,11 @@ function addQuiz() {
     answer.value = "";
     emptyQuiz = document.getElementById("empty-quiz");
     emptyQuiz.setAttribute("hidden", true);
+
     let availableUQ = document.getElementById("available-user-quizzes");
     availableUQ.insertAdjacentHTML(
       "beforeend",
-      `<div class=" col-sm-3 quiz_card"> <input
+      `<div class="col-sm-3 quiz_card"> <input
     type="checkbox"
     id=""
     name="topicChoice"
@@ -371,22 +343,19 @@ function addQuiz() {
   ${topicName} </div>`
     );
     showHome();
-    console.log(topicName);
-
+    availableUQ.removeAttribute("hidden");
     quesList.innerHTML = "";
   }
 }
 
 //-------------------- END ADD QUIZ JAVASCRIPT FILE--------------------------------
 
-let homeContainer = document.getElementById("home");
-let creatQuizContainer = document.getElementById("create-quiz");
-function showHome() {
+const showHome = () => {
   homeContainer.removeAttribute("hidden");
-  creatQuizContainer.setAttribute("hidden", true);
+  createQuizContainer.setAttribute("hidden", true);
+  document.getElementById("search-file").setAttribute("hidden",true);
 }
-function showCreateQuiz() {
+const showCreateQuiz = () => {
   homeContainer.setAttribute("hidden", true);
-  creatQuizContainer.removeAttribute("hidden");
+  createQuizContainer.removeAttribute("hidden");
 }
- 
