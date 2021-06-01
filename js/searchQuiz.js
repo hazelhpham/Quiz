@@ -40,7 +40,7 @@ const searchTopic = () => {
     </div> `
     );
     userSearch.value = "";
-  } else {
+  } else if (checkVal === false) {
       alert("Quiz does not exist!");
       userSearch.value = "";
   }
