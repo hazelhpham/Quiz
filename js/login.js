@@ -13,20 +13,20 @@ signInButton.addEventListener("click", () => {
 const username = document.getElementById(`username`);
 const password = document.getElementById(`password`);
 console.log(userDB[0].username);
-function loginSucceed() {
-  let isLoginSucces = false;
-  for (let i = 0; i < userDB.length; i++) {
 
+function loginSucceed() {
+  let isLoginSuccess = false;
+  for (let i = 0; i < userDB.length; i++) {
     if (
       userDB[i].username === username.value &&
       userDB[i].password === password.value
     ) {
-      isLoginSucces = true;
-      window.location.href = "index.html";
+      window.location.href = "main.html";
+      isLoginSuccess = true;
       break;
     }
   }
-  if (isLoginSucces) {
+  if (isLoginSuccess) {
     alert("Login success");
   } else {
     alert("Try again");
@@ -70,3 +70,4 @@ function enterSignup(e) {
     signUp();
   }
 }
+
