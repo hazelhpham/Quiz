@@ -13,6 +13,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+
     <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Helvetica">
 
@@ -54,7 +55,7 @@
 
     <div class="container" id="home">
       <div id="topic-quizzes-hide">
-      <h3> Topics</h3>
+        <h3> Topics</h3>
       <div class="available_quizzes">
         <div class="row">
           <div class="math col-sm-3 quiz_card">
@@ -64,7 +65,8 @@
               name="topicChoice"
               value="math"
               class="checkbox-inline topicChoice"
-            />Math 
+            />
+            Math 
           </div>
           <div class="geography col-sm-3 quiz_card">
             <input
@@ -130,6 +132,7 @@
       </button>
       </div>
     </div>
+    </div>
       <div id="testQuiz">
         <!-- <div>
           Your topic is :
@@ -137,10 +140,12 @@
         </div> -->
         <div id="question"></div>
         <div id="countQuestion"></div>
-        <div id="choiceA" class="choices"></div>
-        <div id="choiceB" class="choices"></div>
-        <div id="choiceC" class="choices"></div>
-        <div id="choiceD" class="choices"></div>
+        <div class="options row">
+        <div id="choiceA" class="col-sm-4 choices"></div>
+        <div id="choiceB" class="col-sm-4 choices"></div>
+        <div id="choiceC" class="col-sm-4 choices"></div>
+        <div id="choiceD" class="col-sm-4 choices"></div>
+        </div>
         <div class="user_answer">
           <input
             class="form-control"
@@ -162,12 +167,12 @@
         </div>
       </div>
 
-      <div class="container user_quizzes">
+      <div class="container" id="user-quizzes">
         <div id="empty-quiz">
           <h3> Your quizzes </h3>
             <p>You do not have any quizzes.
-            <span><a href="#" onclick="showCreateQuiz()"> Create new one .. </a> </span> </p>
-          </div>
+            <span><a href="#" class="create-quiz" onclick="showCreateQuiz()"> Create new one .. </a> </span> </p>
+        </div>
         
         <div id="available-user-quizzes"> 
           <h3> Your quizzes </h3> 
@@ -223,7 +228,7 @@
       </div>
     </div>
   </div>
-    <div class="container" id="create-quiz" hidden>
+    <div class="container" id="create-quiz">
       <form action="#">
         <div class="form-group">
           <label class="control-label">Topic</label>
