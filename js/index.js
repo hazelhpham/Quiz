@@ -8,7 +8,7 @@ let emptyQuizzes = document.getElementById("empty-quiz");
 let createQuizContainer = document.getElementById("create-quiz");
 let availableUQ = document.getElementById("available-user-quizzes");
 availableUQ.setAttribute("hidden", true);
-
+document.getElementById("create-quiz").style.display = "none";
 
 //variables for testQuiz
 let testQuiz = document.getElementById("testQuiz");
@@ -351,11 +351,14 @@ function addQuiz() {
 //-------------------- END ADD QUIZ JAVASCRIPT FILE--------------------------------
 
 const showHome = () => {
-  homeContainer.removeAttribute("hidden");
-  createQuizContainer.setAttribute("hidden", true);
-  document.getElementById("search-file").setAttribute("hidden",true);
-}
+  document.getElementById("topic-quizzes-hide").style.display = "block";
+  document.getElementById("testQuiz").style.display = "none";
+  document.getElementById("create-quiz").style.display = "hidden";
+  document.getElementById("user-quizzes").style.display = "block";
+  document.getElementById("search-file").setAttribute("hidden", true);
+};
 const showCreateQuiz = () => {
-  homeContainer.setAttribute("hidden", true);
-  createQuizContainer.removeAttribute("hidden");
-}
+  document.getElementById("topic-quizzes-hide").style.display = "none";
+  document.getElementById("user-quizzes").style.display = "none";
+  document.getElementById("create-quiz").style.display = "block";
+};
