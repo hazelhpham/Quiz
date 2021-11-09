@@ -21,7 +21,7 @@ function loginSucceed() {
       userDB[i].username === username.value &&
       userDB[i].password === password.value
     ) {
-      window.location.href = "main.html";
+      window.location.href = "https://hazelhpham.github.io/Quiz/main.html";
       isLoginSuccess = true;
       break;
     }
@@ -60,9 +60,12 @@ function signUp() {
     userDB.push(newUserDB);
     console.log(userDB);
     alert("You have successfully sign up");
-    usernameSignUp.value = "";
-    passwordSignUp.value = "";
-    emailSignUp.value = "";
+    window.location.href = "https://hazelhpham.github.io/Quiz/main.html";
+    isLoginSuccess = true;
+    // break;
+    // usernameSignUp.value = "";
+    // passwordSignUp.value = "";
+    // emailSignUp.value = "";
   }
 }
 function enterSignup(e) {
@@ -70,4 +73,3 @@ function enterSignup(e) {
     signUp();
   }
 }
-
