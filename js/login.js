@@ -31,6 +31,8 @@ function loginSucceed() {
   }
   if (isLoginSuccess) {
     alert("Login success");
+    username.value = "";
+    password.value = "";
   } else {
     alert("Try again");
     username.value = "";
