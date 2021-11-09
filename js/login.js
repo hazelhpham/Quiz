@@ -68,9 +68,9 @@ function signUp() {
     window.location.href = "./main.html";
     isLoginSuccess = true;
     // break;
-    // usernameSignUp.value = "";
-    // passwordSignUp.value = "";
-    // emailSignUp.value = "";
+     usernameSignUp.value = "";
+     passwordSignUp.value = "";
+     emailSignUp.value = "";
   }
 }
 function enterSignup(e) {
