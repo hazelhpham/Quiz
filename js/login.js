@@ -23,7 +23,8 @@ function loginSucceed() {
     ) {
       window.location.href = "https://hazelhpham.github.io/Quiz/main.html";
       isLoginSuccess = true;
-      break;
+      //break;
+      return false;
     }
   }
   if (isLoginSuccess) {
