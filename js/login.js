@@ -21,7 +21,10 @@ function loginSucceed() {
       userDB[i].username === username.value &&
       userDB[i].password === password.value
     ) {
-      window.location.href = "https://hazelhpham.github.io/Quiz/main.html";
+      //window.location.href = "https://hazelhpham.github.io/Quiz/main.html";
+           setTimeout(function () {
+        document.location.href = "main.html";
+      }, 500);
       isLoginSuccess = true;
       break;
     }
