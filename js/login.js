@@ -25,8 +25,8 @@ function loginSucceed() {
       //window.location.href = "https://hazelhpham.github.io/Quiz/main.html";
       //window.location.replace( "https://hazelhpham.github.io/Quiz/main.html");
       isLoginSuccess = true;
-      //break;
-      return false;
+      break;
+  
     }
   }
   if (isLoginSuccess) {
